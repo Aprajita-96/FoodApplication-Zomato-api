@@ -1,0 +1,22 @@
+<form class="form-inline"  (ngSubmit)="get(search.value)" >
+  <input #search class="form-control mr-sm-2"  id="search" type="search" name="search" placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-success my-2 my-sm-0"  type="submit"  (click)="get()" >Search</button>
+</form>
+
+<div class="container">
+    <div class="card_container">
+       <div *ngFor = "let movie of arrayOfMovies" class="card" style="width: 18rem;">
+           <img src="{{movie.restaurant.featured_image}}"class="card-img-top" alt="...">
+           <div class="card-body">
+           <h5 class="card-title">{{movie.restaurant.name}}</h5>
+            <p class="card-text">{{movie.restaurant.location.address}}</p>
+           <button  (click)="add(movie.restaurant)" class="btn btn-success">add to fav...</button>
+           
+           <button  (click) = "gotSearch(movie.restaurant.R.res_id)" class="btn btn-primary">Details...</button>
+
+         </div>
+       </div>
+    
+     </div>
+    </div>
+    <!-- routerLink="search/{{m}}" -->
